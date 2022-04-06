@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:padding="20dp"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/browse_result_holder">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/arrow_back"
+            android:backgroundTint="@color/black"
+            android:onClick="launchRideSearchFragment" />
+
+        <TextView
+            style="@style/BoldSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse Available Rides"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:id="@+id/setting_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/setting"
+            android:backgroundTint="@color/black" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:animateLayoutChanges="true"
+        android:id="@+id/browse_result_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/progress_holder"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/loading_text"
+                style="@style/BoldSmallTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Finding Your Ride"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loading_animation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:lottie_rawRes="@raw/loading"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:lottie_repeatCount="2"
+                app:lottie_autoPlay="true" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rides_recycler_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        app:layout_constraintBottom_toTopOf="@+id/welcome_text_holder"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/welcome_banner"/>
+
+    <LinearLayout
+        android:id="@+id/welcome_text_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/driver_register_button"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="@style/BoldTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Welcome" />
+
+        <TextView
+            style="@style/BoldContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:text="What's in your mind?" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/driver_register_button"
+        style="@style/MediumButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Share My Vehicle"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/passenger_register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/passenger_register_button"
+        style="@style/MediumButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Need A Ride"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_text_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/login_text_button"
+        style="@style/BoldSmallTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alreday_have_an_account"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="launchLoginActivity"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

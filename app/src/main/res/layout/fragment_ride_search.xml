@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.vanjor.cevrideshare.viewmodel.RideStatusViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:padding="20dp"
+        android:background="@color/white"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/ride_requirements">
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/arrow_back"
+                android:backgroundTint="@color/black"
+                android:onClick="launchPassengerHomeFragment" />
+
+            <Button
+                android:id="@+id/setting_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/setting"
+                android:backgroundTint="@color/black" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ride_requirements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/ride_preference"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                style="@style/BoldContentStyle"
+                android:text="Trip Address"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/address_search"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/places_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    >
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/circle_icon"
+                        app:tint="@color/black" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="25dp"
+                        android:background="@color/black"/>
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/square_icon"
+                        app:tint="@color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/pickup_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textNoSuggestions"
+                        style="@style/BoldSmallTextStyle"
+                        android:text="@={viewmodel.pickupDesc}"
+                        android:hint="Pick Up" />
+
+                    <EditText
+                        android:id="@+id/destination_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textNoSuggestions"
+                        style="@style/BoldSmallTextStyle"
+                        android:text="@={viewmodel.dropoffDesc}"
+                        android:hint="Drop Off" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/swap_address_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/swap_icon"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/places_recycler_view"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <View
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_gray" />
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/seat_requirements"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/BoldContentStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seats"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/seats_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/seats_2"
+                        style="@style/RadioButtonStyle"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:text="2" />
+
+                    <RadioButton
+                        android:id="@+id/seats_3"
+                        style="@style/RadioButtonStyle"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:text="3" />
+
+                    <RadioButton
+                        android:id="@+id/seats_4"
+                        style="@style/RadioButtonStyle"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:text="4" />
+
+                    <RadioButton
+                        android:id="@+id/seats_5"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:paddingHorizontal="10dp"
+                        android:text="5 or More" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/time_requirements"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/BoldContentStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/time_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal"
+                    android:checkedButton="@={viewmodel.time}"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/time_now"
+                        style="@style/RadioButtonStyle"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:text="Now" />
+
+                    <RadioButton
+                        android:id="@+id/time_schedule"
+                        style="@style/RadioButtonStyle"
+                        android:background="@color/chip_backgroud_color_selector"
+                        android:paddingLeft="5dp"
+                        android:drawableLeft="@drawable/schedual_car_selector">
+                    </RadioButton>
+                </RadioGroup>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:id="@+id/ride_preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/search_selection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                style="@style/BoldContentStyle"
+                android:text="Ride Preference"/>
+
+            <HorizontalScrollView
+                android:scrollbars="none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/preference_chipGroup"
+                    app:singleLine="true"
+                    app:singleSelection="true"
+                    app:selectionRequired="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Chips can be declared here, or added dynamically. -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/no_preference_chip"
+                        style="@style/PreferenceChipStyle"
+                        android:tag="0"
+                        android:text="No Preference"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/time_chip"
+                        style="@style/PreferenceChipStyle"
+                        android:tag="1"
+                        android:text="Fast Pickup"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/price_chip"
+                        style="@style/PreferenceChipStyle"
+                        android:tag="2"
+                        android:text="Low Price"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/comfort_chip"
+                        style="@style/PreferenceChipStyle"
+                        android:tag="3"
+                        android:text="Comfort"/>
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_selection"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/browse_button"
+                style="@style/SmallButtonStyle"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Browse Vehicles" />
+
+            <Button
+                android:id="@+id/match_button"
+                style="@style/SmallButtonStyle"
+                android:background="@color/black"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Quick Match" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
