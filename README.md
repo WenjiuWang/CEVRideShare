@@ -14,35 +14,35 @@
 ## Feature Demos
 - Flowing & fading polyline animation
 
-    ![polyline_animation](media\polyline_animation.gif)
+    ![polyline_animation](media/polyline_animation.gif)
 
 - Vehicle marker animation
 
-    ![vehicle_animation](media\vehicle_animation.gif)
+    ![vehicle_animation](media/vehicle_animation.gif)
 
 - Login
 
-    ![login](media\login.png)
+    ![login](media/login.png)
 
 - Sign Up
 
-    ![signup](media\signup.png)
+    ![signup](media/signup.png)
 
 - Trip planning with autocomplete address search 
 
-    ![auto_complete_search](media\auto_complete_search.gif)
+    ![auto_complete_search](media/auto_complete_search.gif)
 
 - Vehicle browse & match with cost preference
 
-    ![trip_browse_match_demo](media\trip_browse_match_demo.gif)
+    ![trip_browse_match_demo](media/trip_browse_match_demo.gif)
 
 - Driver side home screen 
 
-    ![driver_home](media\driver_home.png)
+    ![driver_home](media/driver_home.png)
 
 - Trip in progress
 
-    ![trip_progress](media\trip_progress.png)
+    ![trip_progress](media/trip_progress.png)
 
 
 ## Getting started
